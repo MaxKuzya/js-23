@@ -1,56 +1,76 @@
 /*
- * Знакомство  с массивами
- * - Объявление
- * - Индексация
- * - Длина
- * - Индекс последнего элемента
- * - Переопределение
- *
- * 'Mango', 'Kiwi', 'Poly', 'Ajax'
+ * Функции
+ * - Функциональные выражения
+ * - Аргументы и параметры
+ * - Возврат значения
  */
 
-const array = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
-const string = 'Example string';
+// Function declaration
+// Обьявление функции без присваивания в переменную
+// hoisting
+function fnDeclaration() {}
 
-array[1] = 'Kiwi modified';
+// Function expression
+// Когда мы записываем функцию в переменную
+// Не может быть вызвана раньшен чем обьявлена (из-за const)
+const fnExpression = function (productsArray) {
+  console.log('Функция вызвана!');
+};
 
-// console.log(array[1]);
-// console.table(array);
+// Параметр - то, что ПРИНИМАЕТ функция (локальная переменная внутри функции)
+// Аргумент - то, что ПЕРЕДАЁТСЯ в функцию (само значение)
+const calculateTotalPrice = function (productsArray) {
+  console.count('Функция вызвана!');
+  console.log(productsArray, productsArray === cart2);
+  console.log('Функция вычисляет сумму...');
+
+  let total = 0;
+
+  for (const itemValue of productsArray) {
+    total += itemValue;
+  }
+
+  return total;
+};
+
+// console.log('Обьявляем переменные!');
+
+const cart1 = [54, 28, 120, 12, 25, 90];
+const cart2 = [92, 17, 120, 13, 65, 91];
+
+// console.log('Результат выполнения:', calculateTotalPrice(cart2));
 
 /*
- * Передача по ссылке и по значению
- * - Примитивы и сложные типы
- * - Ссылочное равенство (referential equality)
+ * - Стек вызовов
+ * - Stack trace и поиск ошибок
  */
 
-let a = [1, 2, 3];
-let b = a;
+const log = console.log;
 
-// console.log('A:', a, '\nB:', b);
+const fnA = function () {
+  log('Выполняется функция A');
+  fnB();
+};
 
-a[0] = 55;
+const fnB = function () {
+  log('Выполняется функция B');
+  fnC();
+};
 
-// console.log('A:', a, '\nB:', b);
+const fnC = function () {
+  log('Выполняется функция C');
+};
 
-// console.log( [1, 2, 3] === [1, 2, 3]) // false
+// console.log('Лог перед вызовом функции A');
 
-/*
- * Перебор (итерация) массива
- * - for - если нужен индекс или нужно изменить элемент массива
- * - for...of - если индекс не нужен и в массиве ничего менять не нужно
- */
+fnA();
 
-const source = ['Mango', 'Kiwi', 'Poly', 'Ajax'];
-const lastIndex = source.length - 1;
+// console.log('Лог после вызова функции A');
 
-// for (let i = 0; i < source.length; i += 1) {
-//   source[i] += ' MODIFIED!';
-// }
+// console.log('Лог перед вызовом функции B');
+// fnB();
+// console.log('Лог после вызова функции B');
 
-// console.table(source);
-
-// for (const element of source) {
-//   element = element + ' MODIFIED! 2';
-// }
-
-// console.table(source);
+// console.log('Лог перед вызовом функции C');
+// fnC();
+// console.log('Лог после вызова функции C');

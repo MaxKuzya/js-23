@@ -9,41 +9,26 @@
  * - Метод includes() с тернарным оператором
  */
 
-const logins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
-const loginToFind = '12312312';
-let message = `Пользователь ${loginToFind} не найден.`;
+const gameLogins = ['m4ngoDoge', 'k1widab3st', 'poly1scute', 'aj4xth3m4n'];
+const forumLogins = [
+  'mango Doge',
+  'kiwi the best',
+  'poly is cute',
+  'ajax the man',
+];
 
-// // 1 Перебрать элементы массива
-// for (let i = 0; i < logins.length; i += 1) {
-//   const login = logins[i];
-//   // 2 Сравнить текущий элемент с искомым
-//   const isFound = login === loginToFind;
+const findLogin = function (loginsArray, loginToFind) {
+  let message = loginsArray.includes(loginToFind)
+    ? `Пользователь ${loginToFind} найден.`
+    : `Пользователь ${loginToFind} не найден.`;
 
-//   // 3 ЕСЛИ совпадает - задаём сообщение 'Пользователь [логин] найден.'
-//   if (isFound) {
-//     message = `Пользователь ${loginToFind} найден.`;
-//     break;
-//   }
-//   // 4 ИНАЧЕ - задаём сообщение 'Пользователь [логин] не найден.'
-//   else {
-//     message = `Пользователь ${loginToFind} не найден.`;
-//   }
-// }
+  return message;
+};
 
-// // 1 Перебрать элементы массива
-// for (const login of logins) {
-//   // 2 Сравнить текущий элемент с искомым
-//   const isFound = login === loginToFind;
-//   // 3 ЕСЛИ совпадает - задаём сообщение 'Пользователь [логин] найден.'
-//   if (isFound) {
-//     message = `Пользователь ${loginToFind} найден.`;
-//     break;
-//   }
-// }
+console.log(findLogin(gameLogins, 'k1widab3st'));
+console.log(findLogin(gameLogins, 'kiwi'));
 
-message = logins.includes(loginToFind)
-  ? `Пользователь ${loginToFind} найден.`
-  : `Пользователь ${loginToFind} не найден.`;
+console.log('');
 
-// 5 Выводим сообщение
-console.log(message);
+console.log(findLogin(forumLogins, 'kiwiTheBest'));
+console.log(findLogin(forumLogins, 'kiwi the best'));

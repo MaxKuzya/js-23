@@ -2,22 +2,25 @@
  * Посчитать общую сумму покупок в корзине
  */
 
-const cart = [54, 28, 105, 70, 92, 17, 120, 12, 25, 90];
+const calcTotal = function (productsArray) {
+  // 1 Объявить переменную для суммы
+  let total = 0;
 
-// 1 Объявить переменную для суммы
-let total = 0;
+  // 2 Перебираем массив
+  for (const itemValue of productsArray) {
+    // 3 Цену каждого товара добавляем к общей сумме
+    total += itemValue;
+  }
 
-// // 2 Перебираем массив
-// for (let i = 0; i < cart.length; i += 1) {
-//   // 3 Цену каждого товара добавляем к общей сумме
-//   total += cart[i];
-// }
+  // 4 Возвращаем сумму
+  return total;
+};
 
-// 2 Перебираем массив
-for (const itemValue of cart) {
-  // 3 Цену каждого товара добавляем к общей сумме
-  total += itemValue;
-}
+const cart1 = [54, 28, 120, 12, 25, 90];
+const cart2 = [92, 17, 120, 13, 65, 91];
 
-// 4 Выводим сумму
-console.log(total);
+const sum1 = calcTotal(cart1);
+const sum2 = calcTotal(cart2);
+
+console.log('sum1', sum1);
+console.log('sum2', sum2);
