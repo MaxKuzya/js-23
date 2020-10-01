@@ -2,12 +2,43 @@ select {
   padding: 10px;
 }
 
+html {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 16px;
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
+
+input {
+  padding: 8px 16px;
+}
+
 .downloads {
   color: red;
 }
 
-.card {
-  padding: 16px;
-  box-shadow: 0 2px 3px 2px rgba(0, 0, 0, 0.15);
-  margin-bottom: 20px;
+.button {
+  padding: 12px 32px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+
+  background-color: lightseagreen;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: teal;
+}
+
+.button[disabled] {
+  opacity: 0.5;
+  background-color: gray;
+  pointer-events: none;
 }
